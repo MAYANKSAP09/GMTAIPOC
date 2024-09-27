@@ -1,0 +1,7 @@
+applications:
+  - name: llm-demo-gen-ai-hub-poc
+    memory: 512M
+    instances: 1
+    buildpacks:
+      - python_buildpack
+    command: streamlit run app.py --server.port ${PORT} --server.address 0.0.0.0
