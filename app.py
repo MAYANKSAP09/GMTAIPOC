@@ -4,7 +4,7 @@ from gen_ai_hub.proxy.langchain.openai import OpenAIEmbeddings
 from langchain.chains import RetrievalQA
 
 from langchain.text_splitter import CharacterTextSplitter
-from langchain_community.document_loaders import TextLoader
+from langchain_community.document_loaders import PDFMinerLoader
 from langchain_community.vectorstores.hanavector import HanaDB
 from hdbcli import dbapi
 
@@ -50,7 +50,7 @@ LLM_DEPLOYMENT_ID = os.getenv("LLM_DEPLOYMENT_ID")
 chat_llm = ChatOpenAI(deployment_id=LLM_DEPLOYMENT_ID)
 
 # Load custom Documents
-loader = TextLoader('./gramont.txt')
+loader = PDFMinerLoader('./gramont.pdf')
 
 documents = loader.load()
 
@@ -82,7 +82,7 @@ retriever = db.as_retriever()
 qa = RetrievalQA.from_llm(llm=chat_llm, retriever=retriever)
 
 # streamlit UI Header
-st.title("Chat with Nexgen Company")
+st.title("Chat with Gramont Company")
 
 
 query = st.text_input("Enter your Query:")

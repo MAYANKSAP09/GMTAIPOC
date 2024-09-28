@@ -8,3 +8,4 @@ langchain-google-genai
 langchain-aws
 langchain-google-vertexai
 langchain-openai
+pdfminer.six

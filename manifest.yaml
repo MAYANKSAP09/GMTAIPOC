@@ -1,6 +1,6 @@
 applications:
   - name: llm-demo-gen-ai-hub-poc
-    memory: 512M
+    memory: 2048M
     instances: 1
     buildpacks:
       - python_buildpack
